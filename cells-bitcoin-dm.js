@@ -34,9 +34,9 @@ class CellsBitcoinDm extends Polymer.Element {
     this.bpiArray.push(data.bpi.GBP);
     this.bpiArray.push(data.bpi.EUR);
     console.table(this.bpiArray);
-    let arreglo = this.bpiArray;
+    // let arreglo = this.bpiArray;
     let enviar = [];
-    arreglo.forEach(function(item) {
+    this.bpiArray.forEach(function(item) {
     let objPadre = new Object();
     let cells = [];
      let obj = new Object();
