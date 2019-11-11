@@ -34,6 +34,11 @@ class CellsBitcoinDm extends Polymer.Element {
     this.bpiArray.push(data.bpi.GBP);
     this.bpiArray.push(data.bpi.EUR);
     console.table(this.bpiArray);
+    this.dispatchEvent(new CustomEvent('bitcoint-price-changed', {
+      composed: true,
+      bubbles: true,
+      detail: this.bpiArray
+    }));
   }
 
   _rqError(err) {
