@@ -21,6 +21,7 @@ class CellsBitcoinDm extends Polymer.Element {
 
   _getPriceBitcoinList() {
     this.indBitcoinPrices = true;
+    this.bpiArray = [];
     let path = 'https://api.coindesk.com/v1/bpi/currentprice.json';
     this._doRq(path);
   }
@@ -65,12 +66,13 @@ class CellsBitcoinDm extends Polymer.Element {
       console.log(enviar);
       console.table(enviar);
   
+      this.indBitcoinPrices = false;
+
       this.dispatchEvent(new CustomEvent('bitcoint-price-changed', {
         composed: true,
         bubbles: true,
         detail: enviar
       }));
-      this.indBitcoinPrices = false;
     } else if(this.indBitcoinHistorical){
       let dataChart = {};
       dataChart.dates =  Object.keys(data.bpi);
